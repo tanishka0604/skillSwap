@@ -1,0 +1,112 @@
+/* =========================================================
+   SkillSwap — Skill management page (WEB-INF/pages/skills.html)
+   Reuses tokens from style.css. Load this AFTER style.css.
+   ========================================================= */
+
+.skills-page {
+  padding: 56px 24px 80px;
+}
+
+.skills-page .page-head h1 {
+  font-size: 1.9rem;
+  color: var(--ink);
+}
+
+.skills-page .page-head p {
+  margin-top: 10px;
+  color: var(--slate);
+  max-width: 60ch;
+}
+
+.add-skill-form {
+  margin-top: 32px;
+  background: var(--paper-raised);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.add-skill-form .field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.add-skill-form input,
+.add-skill-form select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 11px 12px;
+  border: 1px solid rgba(22, 35, 63, 0.18);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  color: var(--charcoal);
+}
+
+.skill-columns {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.skill-column h2 {
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-raised);
+  border-radius: var(--radius-card);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+}
+
+.skill-list .skill-category {
+  color: var(--slate);
+  font-size: 0.82rem;
+  margin-left: 8px;
+}
+
+.skill-list .remove-btn {
+  background: none;
+  border: none;
+  color: #b3402f;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.skill-list .empty {
+  color: var(--slate);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 800px) {
+  .add-skill-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .skill-columns {
+    grid-template-columns: 1fr;
+  }
+}

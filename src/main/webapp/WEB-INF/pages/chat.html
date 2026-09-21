@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat — SkillSwap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20c0-6 4-10 10-10" stroke="#D9971F" stroke-width="2" stroke-linecap="round"/>
+          <path d="M28 12c0 6-4 10-10 10" stroke="#3F7A5C" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        SkillSwap
+      </a>
+      <div class="nav-actions">
+        <a href="requests" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Requests</a>
+        <a href="logout" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Log out</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="chat-page" id="chatPage">
+    <div class="chat-header">
+      <p class="eyebrow">Accepted swap</p>
+      <h1 id="chatTitle">Loading conversation...</h1>
+    </div>
+
+    <div class="chat-thread" id="chatThread"></div>
+
+    <form class="chat-composer" id="chatForm">
+      <textarea id="messageInput" placeholder="Type a message..." required></textarea>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </main>
+
+  <script src="js/auth-common.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

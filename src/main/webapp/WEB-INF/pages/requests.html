@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swap requests — SkillSwap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/requests.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20c0-6 4-10 10-10" stroke="#D9971F" stroke-width="2" stroke-linecap="round"/>
+          <path d="M28 12c0 6-4 10-10 10" stroke="#3F7A5C" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        SkillSwap
+      </a>
+      <div class="nav-actions">
+        <a href="dashboard" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Dashboard</a>
+        <a href="matches" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Matches</a>
+        <a href="logout" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Log out</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container requests-page">
+    <div class="page-head">
+      <p class="eyebrow">Swap requests</p>
+      <h1>Manage your requests</h1>
+      <p>Requests you've received, sent, and swaps you've already agreed to.</p>
+    </div>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="pending">Received</button>
+      <button class="tab-btn" data-tab="sent">Sent</button>
+      <button class="tab-btn" data-tab="accepted">Accepted swaps</button>
+    </div>
+
+    <div class="request-list" id="requestList"></div>
+  </main>
+
+  <script src="js/auth-common.js"></script>
+  <script src="js/requests.js"></script>
+</body>
+</html>

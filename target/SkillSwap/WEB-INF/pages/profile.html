@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your profile — SkillSwap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20c0-6 4-10 10-10" stroke="#D9971F" stroke-width="2" stroke-linecap="round"/>
+          <path d="M28 12c0 6-4 10-10 10" stroke="#3F7A5C" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        SkillSwap
+      </a>
+      <div class="nav-actions">
+        <a href="dashboard" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Dashboard</a>
+        <a href="matches" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Matches</a>
+        <a href="skills" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Manage skills</a>
+        <a href="requests" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Requests</a>
+        <a href="logout" class="btn btn-outline" style="border-color: var(--ink); color: var(--ink);">Log out</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container profile-page">
+    <div class="page-head">
+      <p class="eyebrow">Your profile</p>
+      <h1>Edit your profile</h1>
+      <p>This is what other members see when SkillSwap suggests a match.</p>
+    </div>
+
+    <div class="profile-layout">
+      <div class="profile-card">
+        <div class="profile-avatar" id="avatar"></div>
+        <h2 id="displayName">—</h2>
+        <p class="email" id="displayEmail">—</p>
+        <div class="skill-counts">
+          <div>
+            <strong id="teachCount">0</strong>
+            <span>Teaching</span>
+          </div>
+          <div>
+            <strong id="learnCount">0</strong>
+            <span>Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="profile-form" id="profileForm">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" />
+        </div>
+
+        <div class="field">
+          <label for="bio">Bio</label>
+          <textarea id="bio" name="bio" rows="4" placeholder="Tell other members a bit about yourself..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="profilePictureUrl">Profile picture URL</label>
+          <input type="text" id="profilePictureUrl" name="profilePictureUrl" placeholder="https://..." />
+          <p class="hint">Paste a link to an image hosted elsewhere — SkillSwap doesn't host uploads yet.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="align-self: flex-start;">Save changes</button>
+
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </div>
+
+    <div class="profile-skills-summary">
+      <div class="skill-columns">
+        <div>
+          <h2>Skills I teach</h2>
+          <div class="skill-tags" id="teachTags"></div>
+        </div>
+        <div>
+          <h2>Skills I want to learn</h2>
+          <div class="skill-tags" id="learnTags"></div>
+        </div>
+      </div>
+      <p class="hint" style="margin-top: 16px;">
+        Want to change these? Head to <a href="skills" style="color: var(--amber-dark); font-weight: 600;">Manage skills</a>.
+      </p>
+    </div>
+  </main>
+
+  <script src="js/auth-common.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

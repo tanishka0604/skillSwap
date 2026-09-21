@@ -1,0 +1,154 @@
+/* =========================================================
+   SkillSwap — Auth pages (register.html / login.html)
+   Reuses the color tokens and fonts defined in style.css.
+   Load this AFTER style.css.
+   ========================================================= */
+
+.auth-shell {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  padding: 64px 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--paper-raised);
+  border-radius: var(--radius-card);
+  padding: 40px 36px;
+  box-shadow: 0 24px 48px rgba(22, 35, 63, 0.1);
+}
+
+.auth-card .eyebrow {
+  margin-bottom: 8px;
+}
+
+.auth-card h1 {
+  font-size: 1.7rem;
+  color: var(--ink);
+}
+
+.auth-card .sub {
+  margin-top: 10px;
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field input {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  padding: 12px 14px;
+  border: 1px solid rgba(22, 35, 63, 0.18);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  color: var(--charcoal);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.field input:focus {
+  border-color: var(--amber-dark);
+}
+
+.field input.invalid {
+  border-color: #b3402f;
+}
+
+.field .field-error {
+  font-size: 0.82rem;
+  color: #b3402f;
+  min-height: 1em;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 34px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--slate);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 4px 6px;
+}
+
+.toggle-password:hover {
+  color: var(--ink);
+}
+
+.auth-form .btn {
+  margin-top: 6px;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-message {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius-card);
+  font-size: 0.9rem;
+  display: none;
+}
+
+.form-message.show {
+  display: block;
+}
+
+.form-message.success {
+  background: rgba(63, 122, 92, 0.12);
+  color: var(--moss-dark);
+}
+
+.form-message.error {
+  background: rgba(179, 64, 47, 0.1);
+  color: #8c3222;
+}
+
+.auth-switch {
+  margin-top: 26px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.auth-switch a {
+  color: var(--amber-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
