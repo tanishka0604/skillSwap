@@ -38,6 +38,11 @@ public class DashboardServlet extends HttpServlet {
             return;
         }
 
+        // This page is only for logged-in users, so the browser must not cache
+        // it — otherwise Back / revisiting after logout shows a stale copy
+        // instead of going through the login check above.
+        response.setHeader("Cache-Control", "no-store");
+
         // Forward = "let another resource on the SERVER handle the rest
         // of this same request", without the browser knowing or the URL
         // changing. This is different from sendRedirect(), which tells

@@ -20,6 +20,13 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <!--
+      Decode every incoming form body as UTF-8. Without this, Tomcat
+      falls back to ISO-8859-1 and any non-ASCII text (names, skills,
+      chat messages in Hindi, emoji, ...) is saved as garbled characters.
+    -->
+    <request-character-encoding>UTF-8</request-character-encoding>
+
     <!-- Minutes of inactivity before a session is automatically invalidated -->
     <session-config>
         <session-timeout>30</session-timeout>

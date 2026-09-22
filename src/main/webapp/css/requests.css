@@ -82,7 +82,8 @@
   gap: 8px;
 }
 
-.request-row .actions button {
+.request-row .actions button,
+.request-row .actions a {
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
