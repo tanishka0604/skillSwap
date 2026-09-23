@@ -224,30 +224,11 @@ public class JsonUtil {
     }
 
     // Escapes characters that would otherwise break the JSON string,
-    // e.g. if a message itself contained a double quote, or a newline
-    // typed into the chat box or bio textarea (raw control characters
-    // are not allowed inside a JSON string).
+    // e.g. if a message itself contained a double quote.
     private static String escape(String value) {
         if (value == null) {
             return "";
         }
-        StringBuilder sb = new StringBuilder(value.length());
-        for (int i = 0; i < value.length(); i++) {
-            char c = value.charAt(i);
-            switch (c) {
-                case '\\': sb.append("\\\\"); break;
-                case '"':  sb.append("\\\""); break;
-                case '\n': sb.append("\\n"); break;
-                case '\r': sb.append("\\r"); break;
-                case '\t': sb.append("\\t"); break;
-                default:
-                    if (c < 0x20) {
-                        sb.append(String.format("\\u%04x", (int) c));
-                    } else {
-                        sb.append(c);
-                    }
-            }
-        }
-        return sb.toString();
+        return value.replace("\\", "\\\\").replace("\"", "\\\"");
     }
 }
