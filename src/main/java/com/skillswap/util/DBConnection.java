@@ -60,35 +60,15 @@ public class DBConnection {
             throw new RuntimeException("Failed to load db.properties", e);
         }
 
-        // Environment variables (DB_URL, DB_USER, DB_PASSWORD), when set,
-        // win over db.properties — that's how docker-compose.yml points
-        // the app at its own MySQL container, and how anyone can use
-        // their own MySQL password without editing a committed file.
-        DB_URL = setting("DB_URL", props.getProperty("db.url"));
-        DB_USER = setting("DB_USER", props.getProperty("db.user"));
-        DB_PASSWORD = setting("DB_PASSWORD", props.getProperty("db.password"));
-
-        // Inside Tomcat, a driver jar in WEB-INF/lib is NOT picked up by
-        // DriverManager's automatic discovery (DriverManager is loaded by
-        // the JVM's own classloader, which can't see the webapp's jars).
-        // Loading the class explicitly makes it register itself, otherwise
-        // every getConnection() fails with "No suitable driver found".
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException("MySQL JDBC driver not found on classpath", e);
-        }
+        DB_URL = props.getProperty("db.url");
+        DB_USER = props.getProperty("db.user");
+        DB_PASSWORD = props.getProperty("db.password");
     }
 
     // Private constructor: this class only has static members, so there's
     // no reason to ever create a "new DBConnection()". Making the
     // constructor private prevents that by mistake.
     private DBConnection() {
-    }
-
-    private static String setting(String envName, String fileValue) {
-        String envValue = System.getenv(envName);
-        return (envValue != null && !envValue.isEmpty()) ? envValue : fileValue;
     }
 
     /**

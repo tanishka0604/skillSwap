@@ -63,41 +63,6 @@
                 <version>3.4.0</version>
             </plugin>
 
-            <!--
-              Run the app locally without installing Tomcat:
-                  ./mvnw package cargo:run        (Mac / Linux)
-                  mvnw.cmd package cargo:run      (Windows)
-              Cargo downloads Tomcat 9 from Maven Central on first run and
-              serves the WAR at http://localhost:8080/SkillSwap/
-            -->
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven3-plugin</artifactId>
-                <version>1.10.29</version>
-                <configuration>
-                    <container>
-                        <containerId>tomcat9x</containerId>
-                        <artifactInstaller>
-                            <groupId>org.apache.tomcat</groupId>
-                            <artifactId>tomcat</artifactId>
-                            <version>9.0.122</version>
-                        </artifactInstaller>
-                    </container>
-                    <configuration>
-                        <properties>
-                            <cargo.servlet.port>8080</cargo.servlet.port>
-                        </properties>
-                    </configuration>
-                    <deployables>
-                        <deployable>
-                            <properties>
-                                <context>SkillSwap</context>
-                            </properties>
-                        </deployable>
-                    </deployables>
-                </configuration>
-            </plugin>
-
         </plugins>
 
     </build>

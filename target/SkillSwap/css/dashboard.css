@@ -1,0 +1,125 @@
+/* =========================================================
+   SkillSwap — Dashboard page (WEB-INF/pages/dashboard.html)
+   Reuses tokens from style.css. Load this AFTER style.css.
+   ========================================================= */
+
+.dashboard-page {
+  padding: 48px 24px 80px;
+}
+
+.dashboard-greeting h1 {
+  font-size: 1.9rem;
+  color: var(--ink);
+}
+
+.dashboard-greeting p {
+  margin-top: 8px;
+  color: var(--slate);
+}
+
+.dashboard-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.dash-stat {
+  background: var(--paper-raised);
+  border-radius: var(--radius-card);
+  padding: 20px;
+}
+
+.dash-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--ink);
+}
+
+.dash-stat span {
+  font-size: 0.82rem;
+  color: var(--slate);
+}
+
+.dashboard-panels {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dash-panel {
+  background: var(--paper-raised);
+  border-radius: var(--radius-card);
+  padding: 22px 24px;
+}
+
+.dash-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.dash-panel-head h2 {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.dash-panel-head a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--amber-dark);
+  text-decoration: none;
+}
+
+.dash-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dash-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(22, 35, 63, 0.06);
+  font-size: 0.9rem;
+}
+
+.dash-row:last-child {
+  border-bottom: none;
+}
+
+.dash-row .name {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.dash-row .sub {
+  color: var(--slate);
+  font-size: 0.82rem;
+}
+
+.dash-empty {
+  color: var(--slate);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+.dash-message .content {
+  color: var(--charcoal);
+  font-size: 0.88rem;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dashboard-panels {
+    grid-template-columns: 1fr;
+  }
+}

@@ -49,15 +49,13 @@ public class UserService {
         validateEmail(email);
         validatePassword(password);
 
-        String normalizedEmail = email.trim().toLowerCase();
-
         try {
-            if (userDAO.findUserByEmail(normalizedEmail) != null) {
+            if (userDAO.findUserByEmail(email) != null) {
                 throw new SkillSwapException("An account with this email already exists.");
             }
 
             String hashedPassword = PasswordUtil.hashPassword(password);
-            User newUser = new User(name.trim(), normalizedEmail, hashedPassword);
+            User newUser = new User(name.trim(), email.trim().toLowerCase(), hashedPassword);
 
             userDAO.registerUser(newUser);
             return newUser;
