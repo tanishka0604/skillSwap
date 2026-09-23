@@ -55,14 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       titleEl.textContent = "Chatting with " + result.otherUserName;
-      renderThread(result.messages);
+      renderThread(result.messages, result.otherUserId);
 
     } catch (err) {
       showError("Could not load this conversation.");
     }
   }
 
-  function renderThread(messages) {
+  function renderThread(messages, otherUserId) {
     threadEl.innerHTML = "";
 
     if (messages.length === 0) {
@@ -74,18 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     messages.forEach(function (message) {
-      threadEl.appendChild(buildBubble(message));
+      threadEl.appendChild(buildBubble(message, otherUserId));
     });
 
     threadEl.scrollTop = threadEl.scrollHeight;
   }
 
-  function buildBubble(message) {
-    // "mine" vs "theirs" is decided by comparing the message's sender
-    // name to the chat header's other-participant name — this page
-    // never separately fetched "my own name" to compare against.
-    var otherName = titleEl.textContent.replace("Chatting with ", "");
-    var isTheirs = message.senderName === otherName;
+  function buildBubble(message, otherUserId) {
+    // "mine" vs "theirs" is decided by comparing ids, not names — two
+    // members can easily share a display name.
+    var isTheirs = message.senderId === otherUserId;
 
     var bubble = document.createElement("div");
     bubble.className = "chat-bubble " + (isTheirs ? "theirs" : "mine");

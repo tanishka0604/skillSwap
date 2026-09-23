@@ -48,7 +48,7 @@ public class MessageDAO {
                 "FROM messages m " +
                 "JOIN users u ON u.id = m.sender_id " +
                 "WHERE m.request_id = ? " +
-                "ORDER BY m.sent_at ASC";
+                "ORDER BY m.sent_at ASC, m.id ASC";
 
         List<Message> messages = new ArrayList<>();
 
@@ -93,7 +93,7 @@ public class MessageDAO {
                 "JOIN skill_requests r ON r.id = m.request_id " +
                 "JOIN users u ON u.id = m.sender_id " +
                 "WHERE r.sender_id = ? OR r.receiver_id = ? " +
-                "ORDER BY m.sent_at DESC " +
+                "ORDER BY m.sent_at DESC, m.id DESC " +
                 "LIMIT ?";
 
         List<Message> messages = new ArrayList<>();

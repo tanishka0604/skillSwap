@@ -22,6 +22,11 @@ public class RequestsServlet extends HttpServlet {
             return;
         }
 
+        // This page is only for logged-in users, so the browser must not cache
+        // it — otherwise Back / revisiting after logout shows a stale copy
+        // instead of going through the login check above.
+        response.setHeader("Cache-Control", "no-store");
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/pages/requests.html");
         dispatcher.forward(request, response);
     }

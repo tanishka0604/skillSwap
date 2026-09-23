@@ -146,6 +146,17 @@ p {
   color: var(--paper);
 }
 
+/* Outline buttons sit on the dark navbar, so they need light text */
+.navbar .btn-outline {
+  color: var(--paper);
+  border-color: rgba(246, 244, 238, 0.4);
+}
+
+.navbar .btn-outline:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 /* -------------------- Navbar -------------------- */
 
 .navbar {
@@ -673,9 +684,30 @@ footer.site-footer {
 }
 
 @media (max-width: 680px) {
+  /* Only the landing page (#navbar) has a hamburger menu to fall back on */
   .nav-links,
-  .nav-actions .btn-outline {
+  #navbar .nav-actions .btn-outline {
     display: none;
+  }
+
+  /* App pages have no hamburger — wrap their nav buttons instead of hiding them */
+  .navbar:not(#navbar) .container {
+    height: auto;
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .navbar:not(#navbar) .nav-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .navbar:not(#navbar) .nav-actions .btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
   }
 
   .nav-toggle {
